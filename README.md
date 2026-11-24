@@ -1,25 +1,25 @@
-# Dell Precision 7560 OpenCore EFI
+# EFI OpenCore Dell Precision 7560 + NullMoth
 
-OpenCore configuration from a Dell Precision 7560 with an Intel Core i7-11850H, NVIDIA RTX A3000 Laptop GPU (6 GB), and macOS 26.7.3. The source machine uses NullMoth 3.1 and has its internal panel connected to the NVIDIA GPU. This is a **public template**, not a ready-to-boot personal EFI.
+Ini EFI dari Dell Precision 7560 punyaku: Intel Core i7-11850H, NVIDIA RTX A3000 Laptop GPU 6 GB, macOS 26.7.3, dan driver NullMoth 3.1. Layar laptopnya nyambung ke NVIDIA.
 
-**Do not copy this EFI and boot it unchanged.** The included SMBIOS values are placeholders. ACPI, USB mapping, display routing, Wi-Fi, and boot arguments may differ even between Precision 7560 units.
+**Jangan main salin terus langsung boot, bang.** Ini template buat dicocokkan sama laptopmu, bukan EFI yang tinggal pakai. Walaupun sama-sama Precision 7560, isi hardware dan pengaturan BIOS bisa beda.
 
-## Before using it
+## Sebelum dicoba
 
-1. Generate your own SMBIOS `SystemSerialNumber`, `MLB`, `SystemUUID`, and `ROM`, then replace the placeholders in `EFI/OC/config.plist`.
-2. Add your own Wi-Fi networks through HeliPort. The `itlwm.kext` `WiFiConfig` in this repository is empty to keep network names and passwords private.
-3. Review the ACPI files, device properties, kexts, and boot arguments for your exact hardware. Keep a known-working USB recovery EFI before testing changes.
-4. Install the NullMoth NVIDIA driver separately inside macOS. Its `NVRM`, `NVRMFB`, `NVAccel`, `NVRMAGDC`, and `NMXAudio` components are **not** in this EFI repository.
-5. Install HeliPort separately if using the included Intel `itlwm.kext` for Wi-Fi.
+1. Bikin identitas SMBIOS punyamu sendiri, lalu ganti `SystemSerialNumber`, `MLB`, `SystemUUID`, dan `ROM` di `EFI/OC/config.plist`. Yang di repo ini cuma placeholder.
+2. Cek lagi ACPI, USB mapping, jalur layar, kext, dan boot arguments. Jangan asal samakan kalau GPU atau komponen laptopmu beda.
+3. Simpan EFI yang sudah pasti bisa boot di flashdisk. Kalau konfigurasi baru bikin layar gelap, masih ada jalan baliknya.
+4. Install driver NVIDIA [NullMoth](https://github.com/nullmoth/nvidia-macos-driver) **terpisah di macOS**. `NVRM`, `NVRMFB`, `NVAccel`, `NVRMAGDC`, dan `NMXAudio` tidak ikut di repo ini.
+5. Kalau pakai Wi-Fi Intel dari `itlwm.kext`, install [HeliPort](https://github.com/OpenIntelWireless/heliport) juga. Nama dan password Wi-Fi sengaja kukosongkan dari EFI ini; sambungkan jaringanmu sendiri lewat HeliPort.
 
-The working machine's private identifiers and saved Wi-Fi credentials are not included. Historical `config.plist` backups are also excluded.
+Serial/UUID asli, data Wi-Fi, dan backup `config.plist` dari laptopku sudah dibuang. Jadi jangan cari password Wi-Fi di sini, bah.
 
-## Upstream projects
+## Sumber driver
 
 - [OpenCore](https://github.com/acidanthera/OpenCorePkg)
-- [NullMoth NVIDIA driver and 1401](https://github.com/nullmoth/nvidia-macos-driver)
+- [NullMoth NVIDIA driver](https://github.com/nullmoth/nvidia-macos-driver)
 - [VoodooPS2](https://github.com/acidanthera/VoodooPS2)
-- [OpenIntelWireless itlwm and HeliPort](https://github.com/OpenIntelWireless/itlwm)
+- [OpenIntelWireless itlwm](https://github.com/OpenIntelWireless/itlwm)
 - [WhateverXe](https://github.com/b00t0x/WhateverXe)
 
-Each included binary remains under its upstream license. Check upstream license terms before redistributing or adapting these files.
+File bawaan proyek lain tetap ikut lisensi dari pembuatnya. Cek lisensinya kalau mau sebar ulang atau ubah-ubah.
