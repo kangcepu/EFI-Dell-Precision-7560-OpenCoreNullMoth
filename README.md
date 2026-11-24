@@ -1,6 +1,20 @@
 # EFI OpenCore Dell Precision 7560 + NullMoth
 
-Ini EFI dari Dell Precision 7560 punyaku: Intel Core i7-11850H, NVIDIA RTX A3000 Laptop GPU 6 GB, macOS 26.7.3, dan driver NullMoth 3.1. Layar laptopnya nyambung ke NVIDIA.
+Ini EFI dari Dell Precision 7560 punyaku, jalan di macOS 26.7.3 dengan driver NullMoth 3.1. Layar laptopnya nyambung ke NVIDIA.
+
+## Spek asli laptopku
+
+| Komponen | Spek asli |
+| --- | --- |
+| Laptop | Dell Precision 7560 |
+| Prosesor | Intel Core i7-11850H, generasi ke-11, 8 core / 16 thread, base 2,50 GHz |
+| RAM | 32 GB |
+| GPU | NVIDIA RTX A3000 Laptop GPU, VRAM 6 GB; iGPU Intel Tiger Lake (PCI ID `8086:9A60`) |
+| Layar internal | 3840 × 2160 (4K UHD), 60 Hz |
+| Audio | Realtek ALC289 |
+| Penyimpanan macOS | SSD internal 256 GB |
+
+Kalau di **About This Mac** prosesornya kebaca **Intel Xeon W**, jangan bingung, bah. Itu nama yang ditampilkan macOS gara-gara identitas Mac/SMBIOS di OpenCore. CPU fisiknya tetap **Intel Core i7-11850H**; bisa dicek lewat `sysctl -n machdep.cpu.brand_string`.
 
 **Jangan main salin terus langsung boot, bang.** Ini template buat dicocokkan sama laptopmu, bukan EFI yang tinggal pakai. Walaupun sama-sama Precision 7560, isi hardware dan pengaturan BIOS bisa beda.
 
